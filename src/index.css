@@ -1,0 +1,17 @@
+@import url(//db.onlinewebfonts.com/c/073a3b73a63a87e100f6bb8f003fc0d3?family=Flexo+Light);
+
+:root{
+  --shadow: #00000040;
+  --shadow-highligthed: #00000080;
+  --light-black: #313131;
+  --light-gray: #EBEBEB;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 1rem;
+  font-family: 'Flexo-Demi' , arial, sans-serif;
+}
