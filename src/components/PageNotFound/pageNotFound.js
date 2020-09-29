@@ -19,7 +19,7 @@ const PageNotFound = () => {
           <h2 className='not-found-number'>4</h2>
         </div>
         <h2 className='page-not-found'>Page Not Found</h2>
-        <NavLink to='/' className='back-button'>Back Home</NavLink>
+        <NavLink to='/pokemons' className='back-button'>Back Home</NavLink>
       </div>
       <img
         className='sad-pokemon-img'
