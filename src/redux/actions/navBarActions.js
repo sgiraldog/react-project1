@@ -3,9 +3,7 @@ export const actionTypes = {
   CHANGE_MOBILE_ITEMS_STATUS: 'CHANGE_MOBILE_ITEMS_STATUS'
 }
 
-
 export const updateSearch = (searchContent) => {
-
   return {
     type: actionTypes.UPDATE_SEARCH_CONTENT,
     payload: {

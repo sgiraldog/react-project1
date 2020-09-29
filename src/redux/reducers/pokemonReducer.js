@@ -23,7 +23,6 @@ const pokemonListReducer = (state = initialState, action) => {
         ...state,
         isFetching: true
       }
-
     case actionTypes.FETCH_POKEMON_LIST_SUCCESS:
       return {
         ...state,
@@ -39,13 +38,11 @@ const pokemonListReducer = (state = initialState, action) => {
         error: action.payload.error,
         isFetching: false
       }
-
     case actionTypes.FETCH_POKEMON_REQUEST:
       return {
         ...state,
         isFetching: true
       }
-
     case actionTypes.FETCH_POKEMON_SUCCESS:
       state.pokemons[action.payload.index] = {
         ...action.payload.pokemon,
@@ -57,20 +54,17 @@ const pokemonListReducer = (state = initialState, action) => {
         isModalActive:  !state.isComparing && state.pokemons[action.payload.index].dataLoaded && state.pokemons[action.payload.index].speciesLoaded,
         isComparisonModalActive: state.isComparing && state.pokemons[action.payload.index].dataLoaded && state.pokemons[action.payload.index].speciesLoaded
       }
-    
     case actionTypes.FETCH_POKEMON_ERROR:
       return {
         ...state,
         error: action.payload.error,
         isFetchingPokemon: false
       }
-    
     case actionTypes.FETCH_POKEMON_SPECIES_REQUEST:
       return {
         ...state,
         isFetching: true
       }
-
     case actionTypes.FETCH_POKEMON_SPECIES_SUCCESS:
       state.pokemons[action.payload.index] = {
         ...state.pokemons[action.payload.index],
@@ -82,7 +76,6 @@ const pokemonListReducer = (state = initialState, action) => {
         isModalActive:  !state.isComparing && state.pokemons[action.payload.index].dataLoaded && state.pokemons[action.payload.index].speciesLoaded,
         isComparisonModalActive: state.isComparing && state.pokemons[action.payload.index].dataLoaded && state.pokemons[action.payload.index].speciesLoaded
       }
-    
     case actionTypes.FETCH_POKEMON_SPECIES_ERROR:
       return {
         ...state,

@@ -33,8 +33,6 @@ const ComparisonModal = (props) => {
                     X
                 </button>
               </div>
-
-
               <div className='pokemon-container'>
                 <div className='comparison-image-container'>
                   <img className='comparison-pokemon-img' src={ config.SPRITES_URL + pokemon.id + '.png' } alt={ pokemon.name } />
@@ -42,8 +40,7 @@ const ComparisonModal = (props) => {
                 </div>
                 <div>
                   <h2 className='pokemon-name'>{ pokemon.name.toUpperCase() } vs { pokemon2.name.toUpperCase() }</h2>    
-                </div>
-                 
+                </div>    
                 <div className='information-container'> 
                   <div className='information-container__item'>
                     <h3 className='information-container__item-value'>{ pokemon.height }m</h3>
@@ -62,7 +59,6 @@ const ComparisonModal = (props) => {
                   </div>
                 </div>
               </div>
-              
               <div className='pokemon-container'>
                 <div className='pokemon-container__title'>
                   <img
@@ -91,7 +87,6 @@ const ComparisonModal = (props) => {
                   </ul>
                 </div>
               </div>
-
               <div className='pokemon-container'>
                 <div className='pokemon-container__title'>
                   <img

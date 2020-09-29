@@ -40,6 +40,20 @@
   margin: 1rem;
 }
 
+.comparison-pokemon{
+  position: fixed;
+  background: var(--white);
+  border: 1px solid var(--light-black);
+  border-radius: 1rem;
+  top: 7%;
+  right: 1rem;
+}
+
+.comparison-name{
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
 
 
 @media (max-width: 500px){

@@ -30,7 +30,6 @@ const PokemonModal = (props) => {
           <div className='modal-container' onClick={ closeModal }>
             <div className='card' onClick={ handleCardClick }>
               <div className='pokemon-card__title'>
-                
                 <button className='pokemon-card__compare' onClick={ comparePokemon }>
                     Compare
                 </button>
@@ -70,7 +69,6 @@ const PokemonModal = (props) => {
                   </div>
                 </div>
               </div>
-              
               <div className='pokemon-container'>
                 <div className='pokemon-container__title'>
                   <img

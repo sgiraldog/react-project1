@@ -1,1 +1,1 @@
-export { default } from './pokemonModal';
+export { default } from './PokemonModal';

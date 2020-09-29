@@ -2,12 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 
-
-
 const StatsChart = (props) => {
   const firstPokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon];
   const secondPokemon = props.pokemonData.pokemons[props.pokemonData.secondPokemon];
-
 
   const data = {
     labels: firstPokemon.stats.map( ({ stat }) => stat.name),
@@ -22,7 +19,7 @@ const StatsChart = (props) => {
     ]
   }
 
-  if (props.pokemonData.isComparing){
+  if ( props.pokemonData.isComparing ){
     data.datasets = [
       ...data.datasets,
       {
@@ -59,7 +56,6 @@ const StatsChart = (props) => {
       ],
     }
   }
-
 
   return (
     <div>

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import pokeballIcon from '../../images/pokeball.png';
 import sadPokemon from '../../images/sad-pokemon.png';
 import './pageNotFound.css';
+
 const PageNotFound = () => {
 
   return (
@@ -29,6 +30,5 @@ const PageNotFound = () => {
     </div> 
   )
 }
-
 
 export default PageNotFound;

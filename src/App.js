@@ -9,12 +9,12 @@ import PageNotFound from './components/PageNotFound';
 function App() {
   return (
     <Provider store={store}>
-    <HashRouter basename='/'>
-      <Switch>
-        <Route path='/' exact component={ WelcomePage } />
-        <Route path='/pokemons' component={ PokemonList }/>
-        <Route path='*' exact component={ PageNotFound } />
-      </Switch>
+      <HashRouter basename='/'>
+        <Switch>
+          <Route path='/' exact component={ WelcomePage } />
+          <Route path='/pokemons' component={ PokemonList }/>
+          <Route path='*' exact component={ PageNotFound } />
+        </Switch>
       </HashRouter>
     </Provider>
   );

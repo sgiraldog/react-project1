@@ -1,10 +1,9 @@
 import { actionTypes } from '../actions/navBarActions';
 
 const initialState = {
-  searchContent: "",
+  searchContent: '',
   isMobileItemsActive: false
 }
-
 
 const navBarReducer = (state = initialState, action) => {
   switch (action.type){
@@ -13,7 +12,6 @@ const navBarReducer = (state = initialState, action) => {
         ...state, 
         ...action.payload
       }
-    
     case actionTypes.CHANGE_MOBILE_ITEMS_STATUS:
       return {
         ...state,

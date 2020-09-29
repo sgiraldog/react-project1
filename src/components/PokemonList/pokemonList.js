@@ -11,7 +11,6 @@ import './pokemonList.css'
 let didLoadPokemons = false;
 const PokemonList = (props) => {
   
-
   const fetchPokemonList = () =>{
     props.fetchPokemonList(props.pokemonData.next);
   }
@@ -26,7 +25,7 @@ const PokemonList = (props) => {
       props.selectPokemon(index);
       props.fetchPokemon(index);
       props.fetchPokemonSpecies(index);
-    }else{
+    } else {
       props.selectPokemon(index);
       props.fetchPokemon(index);
       props.fetchPokemonSpecies(index);
@@ -34,10 +33,17 @@ const PokemonList = (props) => {
   }
 
   return (
-    <div>
+    <div className='list-container'>
       <PokemonModal/>
       <ComparisonModal />
       <NavigationBar isSearchActive={ true } />
+      {
+        props.pokemonData.isComparing && (
+          <div className='comparison-pokemon'>
+            <h2 className='comparison-name'>Comparing: { props.pokemonData.pokemons[props.pokemonData.firstPokemon].name }</h2>
+          </div>
+        )
+      }
       <InfiniteScroll
         dataLength={ props.pokemonData.pokemons.length }
         next={ fetchPokemonList }

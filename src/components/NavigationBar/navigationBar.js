@@ -28,13 +28,11 @@ const NavigationBar = (props) => {
           </NavLink>
           <NavLink to='/pokemons' className='normal-link'>Pokémons</NavLink>
         </div>
-        
         <button className='burger-button' onClick={ changeMobileItemsStatus }>
           <span className='burger-button-bar'/>
           <span className='burger-button-bar'/>
           <span className='burger-button-bar'/>
         </button>
-
         { props.isSearchActive && 
           (
             <input className='search-input' type='text' placeholder='Search' onChange={ handleSearch } />
@@ -49,7 +47,6 @@ const NavigationBar = (props) => {
           </div>
         )
       }
-      
     </div>
   )
 }

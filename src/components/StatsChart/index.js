@@ -1,1 +1,1 @@
-export { default } from './statsChart';
+export { default } from './StatsChart';

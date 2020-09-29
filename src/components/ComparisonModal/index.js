@@ -1,1 +1,1 @@
-export { default } from './comparisonModal';
+export { default } from './ComparisonModal';
