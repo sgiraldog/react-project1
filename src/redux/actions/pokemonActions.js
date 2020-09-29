@@ -159,30 +159,21 @@ export const selectPokemon = (index) => {
   })
 }
 
-export const isPokemonModalActive = (status) => 
+export const isPokemonModalActive = () => 
   ({
-    type: actionTypes.IS_MODAL_ACTIVE,
-    payload: {
-      isModalActive: status
-    }
+    type: actionTypes.IS_MODAL_ACTIVE
   })
 
 
-export const isComparing = (status) => 
+export const isComparing = () => 
   ({
-    type: actionTypes.IS_COMPARING,
-    payload: {
-      isComparing: status
-    }
+    type: actionTypes.IS_COMPARING
   })
 
 
-export const isComparisonModalActive = (status) =>
+export const isComparisonModalActive = () =>
   ({
-    type: actionTypes.IS_COMPARISON_MODAL_ACTIVE,
-    payload: {
-      isComparisonModalActive: status
-    }
+    type: actionTypes.IS_COMPARISON_MODAL_ACTIVE
   })
 
 const getStringGender = (index) => {

@@ -11,7 +11,7 @@ const PokemonModal = (props) => {
   const pokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon]
 
   const closeModal = () => {
-    props.isPokemonModalActive(false);
+    props.isPokemonModalActive();
   }
 
   const handleCardClick = (event) => { 
@@ -19,34 +19,32 @@ const PokemonModal = (props) => {
   }
 
   const comparePokemon = () => {
-    props.isPokemonModalActive(false);
-    props.isComparing(true);
+    props.isPokemonModalActive();
+    props.isComparing();
   }
 
   return (
     <div>
       {
         props.pokemonData.isModalActive && (
-          <div className='modal-container' onClick={closeModal}>
-            <div className='card' onClick={handleCardClick}>
+          <div className='modal-container' onClick={ closeModal }>
+            <div className='card' onClick={ handleCardClick }>
               <div className='pokemon-card__title'>
                 
-                <button className='pokemon-card__compare' onClick={comparePokemon}>
+                <button className='pokemon-card__compare' onClick={ comparePokemon }>
                     Compare
                 </button>
-                <button className='pokemon-card__close' onClick={closeModal}>
+                <button className='pokemon-card__close' onClick={ closeModal }>
                     X
                 </button>
               </div>
-
-
               <div className='pokemon-container'>
                 <div className='image-container'>
-                  <img className='pokemon-img' src={config.SPRITES_URL + pokemon.id + '.png'} alt={pokemon.name} />
+                  <img className='pokemon-img' src={ config.SPRITES_URL + pokemon.id + '.png' } alt={ pokemon.name } />
                 </div>
-                <h2 className='pokemon-name'>{pokemon.name.toUpperCase()}</h2>     
+                <h2 className='pokemon-name'>{ pokemon.name.toUpperCase() }</h2>     
                 <p className='pokemon-description'>
-                    {pokemon.description}
+                    { pokemon.description }
                 </p>
                 <ul className='pokemon-types'>
                   {
@@ -59,15 +57,15 @@ const PokemonModal = (props) => {
                 </ul>
                 <div className='information-container'> 
                   <div className='information-container__item'>
-                    <h3 className='information-container__item-value'>{pokemon.height}m</h3>
+                    <h3 className='information-container__item-value'>{ pokemon.height }m</h3>
                     <h3 className='information-container__item-name'>Height</h3>
                   </div>
                   <div className='information-container__item bordered'>
-                    <h3 className='information-container__item-value'>{pokemon.weight}kg</h3>
+                    <h3 className='information-container__item-value'>{ pokemon.weight }kg</h3>
                     <h3 className='information-container__item-name'>Weight</h3>
                   </div>
                   <div className='information-container__item'>
-                    <h3 className='information-container__item-value'>{pokemon.gender}</h3>
+                    <h3 className='information-container__item-value'>{ pokemon.gender }</h3>
                     <h3 className='information-container__item-name'>Gender</h3>
                   </div>
                 </div>
@@ -77,7 +75,7 @@ const PokemonModal = (props) => {
                 <div className='pokemon-container__title'>
                   <img
                     className='pokemon-container__title-img'
-                    src={pokeball}
+                    src={ pokeball }
                     alt='Pokeball'
                   />
                   <h3 className='pokemon-container__title-text'>Abilities</h3>
@@ -85,8 +83,8 @@ const PokemonModal = (props) => {
                 <ul className='abilities-list'>
                   { pokemon.abilities &&
                   pokemon.abilities.map(ability => (
-                    <li className='abilities-item'key={ability.ability.name}>
-                      { ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1)}
+                    <li className='abilities-item'key={ ability.ability.name }>
+                      { ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1) }
                     </li>
                   ))}
                 </ul>
@@ -96,14 +94,14 @@ const PokemonModal = (props) => {
                 <div className='pokemon-container__title'>
                   <img
                     className='pokemon-container__title-img'
-                    src={pokeball}
+                    src={ pokeball }
                     alt='Pokeball'
                   />
                   <h3 className='pokemon-container__title-text'>Stats</h3>
                 </div>
                 <Chart className='chart' />
               </div>
-              <h2 className='pokemon-text'>{pokemon.name.toUpperCase()}</h2>     
+              <h2 className='pokemon-text'>{ pokemon.name.toUpperCase() }</h2>     
             </div> 
           </div>  
         )

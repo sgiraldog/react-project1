@@ -10,11 +10,11 @@ const StatsChart = (props) => {
 
 
   const data = {
-    labels: firstPokemon.stats.map( ({stat}) => stat.name),
+    labels: firstPokemon.stats.map( ({ stat }) => stat.name),
     datasets: [
       {
         label: firstPokemon.name,
-        data: firstPokemon.stats.map(({base_stat}) => base_stat ),
+        data: firstPokemon.stats.map(({ base_stat }) => base_stat ),
         backgroundColor: '#ff7a7f',
         borderWidth: 3,
         hidden: false 
@@ -66,7 +66,7 @@ const StatsChart = (props) => {
       <Bar
         data={ data }
         options={ options }
-        datasetKeyProvider={()=>(Math.random())}
+        datasetKeyProvider={ ()=>(Math.random()) }
       />
     </div>
   )

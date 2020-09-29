@@ -97,18 +97,18 @@ const pokemonListReducer = (state = initialState, action) => {
     case actionTypes.IS_MODAL_ACTIVE:
       return {
         ...state,
-        ...action.payload
+        isModalActive: !state.isModalActive
       }
     case actionTypes.IS_COMPARING:
       return {
         ...state,
-        ...action.payload
+        isComparing: !state.isComparing
       }
 
     case actionTypes.IS_COMPARISON_MODAL_ACTIVE:
       return {
         ...state,
-        ...action.payload
+        isComparisonModalActive: !state.isComparisonModalActive
       }
     default:
       return state

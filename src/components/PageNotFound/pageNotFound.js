@@ -23,7 +23,7 @@ const PageNotFound = () => {
       </div>
       <img
         className='sad-pokemon-img'
-        src={sadPokemon}
+        src={ sadPokemon }
         alt='Sad Pokémon'
       />
     </div> 

@@ -21,7 +21,7 @@ const NavigationBar = (props) => {
         <div className='nav-bar-container'>
           <NavLink to='/' className='home-link'>
               <img 
-                src={icon}
+                src={ icon }
                 alt='PokéDex'
                 className='home-link-img'
               />
@@ -29,7 +29,7 @@ const NavigationBar = (props) => {
           <NavLink to='/pokemons' className='normal-link'>Pokémons</NavLink>
         </div>
         
-        <button className='burger-button' onClick={changeMobileItemsStatus}>
+        <button className='burger-button' onClick={ changeMobileItemsStatus }>
           <span className='burger-button-bar'/>
           <span className='burger-button-bar'/>
           <span className='burger-button-bar'/>

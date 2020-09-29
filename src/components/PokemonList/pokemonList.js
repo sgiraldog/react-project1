@@ -16,13 +16,13 @@ const PokemonList = (props) => {
     props.fetchPokemonList(props.pokemonData.next);
   }
 
-  if(!didLoadPokemons){
+  if ( !didLoadPokemons ){
     fetchPokemonList();
     didLoadPokemons = true;
   }
  
   const fetchPokemon = (index) => {
-    if (!props.pokemonData.isComparing){
+    if ( !props.pokemonData.isComparing ){
       props.selectPokemon(index);
       props.fetchPokemon(index);
       props.fetchPokemonSpecies(index);
@@ -39,21 +39,21 @@ const PokemonList = (props) => {
       <ComparisonModal />
       <NavigationBar isSearchActive={ true } />
       <InfiniteScroll
-        dataLength={props.pokemonData.pokemons.length}
-        next={fetchPokemonList}
-        hasMore={true}
+        dataLength={ props.pokemonData.pokemons.length }
+        next={ fetchPokemonList }
+        hasMore={ true }
       >
       <ul className="pokemon__items">
         {
           props.pokemonData.pokemons.filter(item => item.name.includes(props.navBar.searchContent)).map((pokemon) => {
             const index = props.pokemonData.pokemons.indexOf(pokemon);
             return (
-              <li className="pokemon__item" key={index} onClick={() => fetchPokemon(index)}>
+              <li className="pokemon__item" key={ index } onClick={ () => fetchPokemon(index) }>
                 <img 
                   className="pokemon__item-img"
-                  src={config.SPRITES_URL + (index + 1 ) + '.png'} alt={pokemon.name} />
+                  src={ config.SPRITES_URL + (index + 1 ) + '.png' } alt={ pokemon.name } />
                 <h3 className="pokemon__item-name">
-                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                  { pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }
                 </h3>
               </li>
             )
