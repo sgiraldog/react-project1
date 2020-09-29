@@ -1,0 +1,114 @@
+.main-container{
+  height: 100vh;
+  position: relative;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--light-black);
+}
+
+
+.sorry-title{
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+
+.not-found-number{
+  display: inline-block;
+  margin: 0;
+  padding: 1rem;
+  font-size: 10rem;
+  font-weight: 500;
+}
+
+.not-found-img{
+  width: 8rem;
+}
+
+.page-not-found{
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.back-button{
+  margin-top: 3rem;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--black);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--gray);
+  border-radius: 0.8rem;
+
+}
+
+.sad-pokemon-img{
+  position: absolute;
+  width: 6rem;
+  left: 2rem;
+  bottom: 2rem;
+}
+
+@media (min-width: 550px){
+  .sorry-title{
+    font-size: 3rem;
+  }
+  
+  
+  .not-found-number{
+    font-size: 15rem;
+  }
+  
+  .not-found-img{
+    width: 11rem;
+  }
+  
+  .page-not-found{
+    font-size: 2rem;
+    margin: 0;
+  }
+   
+  .sad-pokemon-img{
+    width: 8rem;
+  }
+
+  .back-button{
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 800px){
+  .sorry-title{
+    font-size: 3.5rem;
+  }
+  
+  
+  .not-found-number{
+    font-size: 20rem;
+  }
+  
+  .not-found-img{
+    width: 16rem;
+  }
+  
+  .page-not-found{
+    font-size: 2.5rem;
+    margin: 0;
+  }
+   
+  .sad-pokemon-img{
+    width: 10rem;
+  }
+
+  .back-button{
+    padding: 1rem 3rem;
+  }
+}
+
+

@@ -81,7 +81,9 @@ export const fetchPokemon = (index) => (dispatch) =>{
             height: data.height,
             weight: data.weight,
             abilities: data.abilities,
-            types: data.types
+            stats: data.stats,
+            types: data.types,
+            url
           }
         }
       })
@@ -97,6 +99,7 @@ export const fetchPokemon = (index) => (dispatch) =>{
   }
   
 }
+
 
 
 export const fetchPokemonSpecies = (index) => (dispatch) =>{
@@ -128,7 +131,7 @@ export const fetchPokemonSpecies = (index) => (dispatch) =>{
           index,
           species:{
             description: data.flavor_text_entries[0].flavor_text,
-            gender: data.gender_rate
+            gender: getStringGender(data.gender_rate)
           }
         }
       })
@@ -144,11 +147,11 @@ export const fetchPokemonSpecies = (index) => (dispatch) =>{
   }
 }
 
-export const selectPokemon = (index) => (dispatch) => {
+export const selectPokemon = (index) => {
   const state = store.getState();
   const key = !state.pokemonData.isComparing ? 'firstPokemon' : 'secondPokemon';
 
-  dispatch({
+  return({
     type: actionTypes.SELECT_POKEMON,
     payload: {
       [key]: index
@@ -156,31 +159,41 @@ export const selectPokemon = (index) => (dispatch) => {
   })
 }
 
-export const isPokemonModalActive = (status) => (dispatch) => {
-  dispatch({
+export const isPokemonModalActive = (status) => 
+  ({
     type: actionTypes.IS_MODAL_ACTIVE,
     payload: {
       isModalActive: status
     }
   })
-}
 
-export const isComparing = (status) => (dispatch) => {
-  dispatch({
+
+export const isComparing = (status) => 
+  ({
     type: actionTypes.IS_COMPARING,
     payload: {
       isComparing: status
     }
   })
-} 
 
-export const isComparisonModalActive = (status) => (dispatch) =>{
-  dispatch({
+
+export const isComparisonModalActive = (status) =>
+  ({
     type: actionTypes.IS_COMPARISON_MODAL_ACTIVE,
     payload: {
       isComparisonModalActive: status
     }
   })
-}
 
+const getStringGender = (index) => {
+  if ( index >= 0 && index <= 4 ){
+    return 'Male';
+  }else if (index >= 4 && index <= 8){
+    return "Female";
+  }else if (index === -1){
+    return 'Genderless';
+  }else {
+    return 'Unknown'
+  }
+}
 
