@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isPokemonModalActive, isComparing } from '../../redux/actions/pokemonActions';
+import { updatePokemonModalActive, updateComparing } from '../../redux/actions/pokemonActions';
 import config from '../../config';
 import pokeball from '../../images/gray-pokeball.png';
 import Chart from '../StatsChart';
@@ -8,10 +8,13 @@ import './pokemonModal.css';
 import './pokemonTypes.css';
 
 const PokemonModal = (props) => {
-  const pokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon]
+  const pokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon];
+  const informationUnits = [ 'm', 'kg', '' ];
+  const informationClass = 'information-container__item';
+  const informationClasses = [ informationClass, informationClass + ' bordered', informationClass ];
 
   const closeModal = () => {
-    props.isPokemonModalActive();
+    props.updatePokemonModalActive();
   }
 
   const handleCardClick = (event) => { 
@@ -19,8 +22,8 @@ const PokemonModal = (props) => {
   }
 
   const comparePokemon = () => {
-    props.isPokemonModalActive();
-    props.isComparing();
+    props.updatePokemonModalActive();
+    props.updateComparing();
   }
 
   return (
@@ -55,18 +58,14 @@ const PokemonModal = (props) => {
                   ))}
                 </ul>
                 <div className='information-container'> 
-                  <div className='information-container__item'>
-                    <h3 className='information-container__item-value'>{ pokemon.height }m</h3>
-                    <h3 className='information-container__item-name'>Height</h3>
-                  </div>
-                  <div className='information-container__item bordered'>
-                    <h3 className='information-container__item-value'>{ pokemon.weight }kg</h3>
-                    <h3 className='information-container__item-name'>Weight</h3>
-                  </div>
-                  <div className='information-container__item'>
-                    <h3 className='information-container__item-value'>{ pokemon.gender }</h3>
-                    <h3 className='information-container__item-name'>Gender</h3>
-                  </div>
+                  {
+                    Object.keys(pokemon.information).map( (key, index) =>(
+                      <div className={ informationClasses[index] }>
+                        <h3 className='information-container__item-value'>{ pokemon.information[key] + informationUnits[index]}</h3>
+                        <h3 className='information-container__item-name'>{ key }</h3>
+                      </div>
+                    ))
+                  }
                 </div>
               </div>
               <div className='pokemon-container'>
@@ -80,9 +79,9 @@ const PokemonModal = (props) => {
                 </div>
                 <ul className='abilities-list'>
                   { pokemon.abilities &&
-                  pokemon.abilities.map(ability => (
-                    <li className='abilities-item'key={ ability.ability.name }>
-                      { ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1) }
+                  pokemon.abilities.map( item => (
+                    <li className='abilities-item' key={ item.ability.name }>
+                      { item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1) }
                     </li>
                   ))}
                 </ul>
@@ -114,8 +113,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    isPokemonModalActive: (state) => dispatch(isPokemonModalActive(state)),
-    isComparing: (state) => dispatch(isComparing(state))
+    updatePokemonModalActive: (state) => dispatch(updatePokemonModalActive(state)),
+    updateComparing: (state) => dispatch(updateComparing(state))
   }
 }
 

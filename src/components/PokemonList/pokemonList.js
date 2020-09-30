@@ -1,23 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import config from '../../config';
-import { selectPokemon, fetchPokemonList, fetchPokemon, fetchPokemonSpecies } from '../../redux/actions/pokemonActions';
+import { selectPokemon, fetchPokemonList, fetchPokemon, fetchPokemonSpecies, updateLoadPokemon } from '../../redux/actions/pokemonActions';
 import PokemonModal from '../PokemonModal';
 import ComparisonModal from '../ComparisonModal';
 import NavigationBar from '../NavigationBar';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './pokemonList.css'
 
-let didLoadPokemons = false;
 const PokemonList = (props) => {
   
   const fetchPokemonList = () =>{
     props.fetchPokemonList(props.pokemonData.next);
   }
 
-  if ( !didLoadPokemons ){
+  if ( !props.pokemonData.didLoadPokemons ){
     fetchPokemonList();
-    didLoadPokemons = true;
+    props.updateLoadPokemon();
   }
  
   const fetchPokemon = (index) => {
@@ -77,6 +76,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
+    updateLoadPokemon: () => dispatch(updateLoadPokemon()),
     selectPokemon: (index) => dispatch(selectPokemon(index)),
     fetchPokemonList: (url) => dispatch(fetchPokemonList(url)),
     fetchPokemon: (index, key) => dispatch(fetchPokemon(index, key)),

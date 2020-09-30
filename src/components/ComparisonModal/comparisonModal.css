@@ -8,7 +8,6 @@
   z-index: 10;
 }
 
-
 .card{
   width: 90%;
   margin: 5rem auto;
@@ -29,7 +28,9 @@
   border-radius: 0.3rem;
   padding: 0.2rem 1rem;
   margin-left: 1.5rem;
-  border: solid 1px var(--white);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--white);
   background: var(--redish);
   color: var(--white);
 }
@@ -46,11 +47,10 @@
   border-radius: 50%;
   cursor: pointer;
   color: var(--redish);
-  border: solid 1px var(--redish);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--redish);
 }
-
-
-
 
 .pokemon-container{
   margin: 2rem 1.5rem;
@@ -79,7 +79,6 @@
   color: var(--gray);
 }
 
-
 .information-container{
   display: flex;
   width: 80%;
@@ -97,8 +96,11 @@
 }
 
 .bordered{
-  border-right: rgba(112, 112, 112, 0.42) solid thin;
-  border-left: rgba(112, 112, 112, 0.42) solid thin;
+  border-color: var(--gray-border);
+  border-width: 1px;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
 }
 
 .information-container__item-value,
@@ -146,7 +148,6 @@
 
 .abilities-item{
   padding: 0.2rem 3rem;
-  
 }
 
 .right{
@@ -157,4 +158,3 @@
   margin: 0;
   color: var(--gray-bg);
 }
-

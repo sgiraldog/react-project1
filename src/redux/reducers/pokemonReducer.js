@@ -13,6 +13,7 @@ const initialState = {
   isModalActive: false,
   isComparing: false,
   isComparisonModalActive: false,
+  didLoadPokemons: false,
   error: null
 }
 
@@ -68,9 +69,14 @@ const pokemonListReducer = (state = initialState, action) => {
     case actionTypes.FETCH_POKEMON_SPECIES_SUCCESS:
       state.pokemons[action.payload.index] = {
         ...state.pokemons[action.payload.index],
-         ...action.payload.species, 
-         speciesLoaded: true}
-       return{
+        information: {
+          ...state.pokemons[action.payload.index].information,
+          gender: action.payload.gender
+        },
+        description: action.payload.description, 
+        speciesLoaded: true
+        }
+      return{
         ...state,
         isFetchingPokemon: false,
         isModalActive:  !state.isComparing && state.pokemons[action.payload.index].dataLoaded && state.pokemons[action.payload.index].speciesLoaded,
@@ -87,21 +93,27 @@ const pokemonListReducer = (state = initialState, action) => {
         ...state,
         ...action.payload
       }
-    case actionTypes.IS_MODAL_ACTIVE:
+    case actionTypes.UPDATE_MODAL_ACTIVE:
       return {
         ...state,
         isModalActive: !state.isModalActive
       }
-    case actionTypes.IS_COMPARING:
+    case actionTypes.UPDATE_COMPARING:
       return {
         ...state,
         isComparing: !state.isComparing
       }
 
-    case actionTypes.IS_COMPARISON_MODAL_ACTIVE:
+    case actionTypes.UPDATE_COMPARISON_MODAL_ACTIVE:
       return {
         ...state,
         isComparisonModalActive: !state.isComparisonModalActive
+      }
+
+    case actionTypes.UPDATE_LOAD_POKEMON:
+      return {
+        ...state,
+        didLoadPokemons: !state.didLoadPokemons
       }
     default:
       return state

@@ -50,7 +50,7 @@
 }
 
 .mobile-bar-container{
-    display: none;
+  display: none;
 }
 
 .burger-button{
@@ -95,8 +95,9 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    border-bottom: 1px solid var(--shadow);;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--shadow);
     color: var(--light-black);
-    
   }
 }

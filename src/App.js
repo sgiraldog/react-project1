@@ -8,7 +8,7 @@ import PageNotFound from './components/PageNotFound';
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={ store }>
       <HashRouter basename='/'>
         <Switch>
           <Route path='/' exact component={ WelcomePage } />

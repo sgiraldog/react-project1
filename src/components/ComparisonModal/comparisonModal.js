@@ -1,18 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isComparisonModalActive, isComparing } from '../../redux/actions/pokemonActions';
+import { updateComparisonModalActive, updateComparing } from '../../redux/actions/pokemonActions';
 import config from '../../config';
 import pokeball from '../../images/gray-pokeball.png';
 import Chart from '../StatsChart';
 import './comparisonModal.css';
 
 const ComparisonModal = (props) => {
-  const pokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon]
-  const pokemon2 = props.pokemonData.pokemons[props.pokemonData.secondPokemon]
+  const pokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon];
+  const pokemon2 = props.pokemonData.pokemons[props.pokemonData.secondPokemon];
+  const informationUnits = [ 'm', 'kg', '' ];
+  const informationClass = 'information-container__item';
+  const informationClasses = [ informationClass, informationClass + ' bordered', informationClass ];
 
   const closeModal = () => {
-    props.isComparing();
-    props.isComparisonModalActive();
+    props.updateComparing();
+    props.updateComparisonModalActive();
   }
 
   const handleCardClick = (event) => { 
@@ -42,21 +45,15 @@ const ComparisonModal = (props) => {
                   <h2 className='pokemon-name'>{ pokemon.name.toUpperCase() } vs { pokemon2.name.toUpperCase() }</h2>    
                 </div>    
                 <div className='information-container'> 
-                  <div className='information-container__item'>
-                    <h3 className='information-container__item-value'>{ pokemon.height }m</h3>
-                    <h3 className='information-container__item-name'>Height</h3>
-                    <h3 className='information-container__item-value'>{ pokemon2.height }m</h3>
-                  </div>
-                  <div className='information-container__item bordered'>
-                    <h3 className='information-container__item-value'>{ pokemon.weight }kg</h3>
-                    <h3 className='information-container__item-name'>Weight</h3>
-                    <h3 className='information-container__item-value'>{ pokemon2.weight }kg</h3>
-                  </div>
-                  <div className='information-container__item'>
-                    <h3 className='information-container__item-value'>{ pokemon.gender }</h3>
-                    <h3 className='information-container__item-name'>Gender</h3>
-                    <h3 className='information-container__item-value'>{ pokemon2.gender }</h3>
-                  </div>
+                  {
+                    Object.keys(pokemon.information).map( (key, index) =>(
+                      <div className={ informationClasses[index] }>
+                        <h3 className='information-container__item-value'>{ pokemon.information[key] + informationUnits[index]}</h3>
+                        <h3 className='information-container__item-name'>{ key }</h3>
+                        <h3 className='information-container__item-value'>{ pokemon2.information[key] + informationUnits[index]}</h3>
+                      </div>
+                    ))
+                  }
                 </div>
               </div>
               <div className='pokemon-container'>
@@ -71,17 +68,17 @@ const ComparisonModal = (props) => {
                 <div className='abilities-container'>
                   <ul className='abilities-list'>
                     { pokemon.abilities &&
-                    pokemon.abilities.map(ability => (
-                      <li className='abilities-item'key={ ability.ability.name }>
-                        { ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1)}
+                    pokemon.abilities.map( item => (
+                      <li className='abilities-item' key={ item.ability.name }>
+                        { item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1)}
                       </li>
                     ))}
                   </ul>
                   <ul className='abilities-list'>
                     { pokemon2.abilities &&
-                    pokemon2.abilities.map(ability => (
-                      <li className='abilities-item right'key={ ability.ability.name }>
-                        { ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1)}
+                    pokemon2.abilities.map( item => (
+                      <li className='abilities-item right' key={ item.ability.name }>
+                        { item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1)}
                       </li>
                     ))}
                   </ul>
@@ -113,8 +110,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    isComparisonModalActive: (state) => dispatch(isComparisonModalActive(state)),
-    isComparing: (state) => dispatch(isComparing(state))
+    updateComparisonModalActive: (state) => dispatch(updateComparisonModalActive(state)),
+    updateComparing: (state) => dispatch(updateComparing(state))
   }
 }
 

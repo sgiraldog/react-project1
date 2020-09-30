@@ -11,10 +11,11 @@ export const actionTypes = {
   FETCH_POKEMON_SPECIES_REQUEST: 'FETCH_POKEMON_SPECIES_REQUEST',
   FETCH_POKEMON_SPECIES_SUCCESS: 'FETCH_POKEMON_SPECIES_SUCCESS',
   FETCH_POKEMON_SPECIES_ERROR: 'FETCH_POKEMON_SPECIES_ERROR',
-  IS_MODAL_ACTIVE: 'IS_MODAL_ACTIVE',
+  UPDATE_MODAL_ACTIVE: 'IS_MODAL_ACTIVE',
   SELECT_POKEMON: 'SELECT_POKEMON',
-  IS_COMPARING: 'IS_COMPARING',
-  IS_COMPARISON_MODAL_ACTIVE: 'IS_COMPARISON_MODAL_ACTIVE'
+  UPDATE_COMPARING: 'UPDATE_COMPARING',
+  UPDATE_COMPARISON_MODAL_ACTIVE: 'UPDATE_COMPARISON_MODAL_ACTIVE',
+  UPDATE_LOAD_POKEMON: 'UPDATE_LOAD_POKEMON'
 }
 
 export const fetchPokemonList = (url = config.API_URL + '/pokemon') => (dispatch) => {
@@ -73,8 +74,10 @@ export const fetchPokemon = (index) => (dispatch) => {
           pokemon:{
             id: data.id,
             name: data.name,
-            height: data.height,
-            weight: data.weight,
+            information: {
+              height: data.height,
+              weight: data.weight,
+            },
             abilities: data.abilities,
             stats: data.stats,
             types: data.types,
@@ -104,10 +107,8 @@ export const fetchPokemonSpecies = (index) => (dispatch) =>{
       type: actionTypes.FETCH_POKEMON_SPECIES_SUCCESS,
       payload: {
         index,
-        species: {
-          description: pokemon.description,
-          gender: pokemon.gender
-        }
+        description: pokemon.description,
+        gender: pokemon.information.gender
       }
     })
   } else {
@@ -121,10 +122,8 @@ export const fetchPokemonSpecies = (index) => (dispatch) =>{
         type: actionTypes.FETCH_POKEMON_SPECIES_SUCCESS,
         payload: {
           index,
-          species:{
-            description: data.flavor_text_entries[0].flavor_text,
-            gender: getStringGender(data.gender_rate)
-          }
+          description: data.flavor_text_entries[0].flavor_text,
+          gender: getStringGender(data.gender_rate)
         }
       })
     })
@@ -151,21 +150,26 @@ export const selectPokemon = (index) => {
   })
 }
 
-export const isPokemonModalActive = () => 
+export const updatePokemonModalActive = () => 
   ({
-    type: actionTypes.IS_MODAL_ACTIVE
+    type: actionTypes.UPDATE_MODAL_ACTIVE
   })
 
 
-export const isComparing = () => 
+export const updateComparing = () => 
   ({
-    type: actionTypes.IS_COMPARING
+    type: actionTypes.UPDATE_COMPARING
+  })
+
+  export const updateLoadPokemon = () => 
+  ({
+    type: actionTypes.UPDATE_LOAD_POKEMON
   })
 
 
-export const isComparisonModalActive = () =>
+export const updateComparisonModalActive = () =>
   ({
-    type: actionTypes.IS_COMPARISON_MODAL_ACTIVE
+    type: actionTypes.UPDATE_COMPARISON_MODAL_ACTIVE
   })
 
 const getStringGender = (index) => {

@@ -6,6 +6,15 @@ const StatsChart = (props) => {
   const firstPokemon = props.pokemonData.pokemons[props.pokemonData.firstPokemon];
   const secondPokemon = props.pokemonData.pokemons[props.pokemonData.secondPokemon];
 
+  const datasetKeyProvider = () => {
+    let key = 'chart_' + firstPokemon.id;
+    if (secondPokemon){
+      key += '_' + secondPokemon.id;
+    }else{
+    }
+    return key;
+  }
+  
   const data = {
     labels: firstPokemon.stats.map( ({ stat }) => stat.name),
     datasets: [
@@ -60,9 +69,10 @@ const StatsChart = (props) => {
   return (
     <div>
       <Bar
+        id='stats_chart'
         data={ data }
         options={ options }
-        datasetKeyProvider={ ()=>(Math.random()) }
+        datasetKeyProvider={ () => datasetKeyProvider }
       />
     </div>
   )
