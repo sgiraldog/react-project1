@@ -86,7 +86,6 @@ const PokemonModal = (props) => {
                   ))}
                 </ul>
               </div>
-
               <div className='pokemon-container'>
                 <div className='pokemon-container__title'>
                   <img

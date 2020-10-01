@@ -10,17 +10,17 @@ import './pokemonList.css'
 
 const PokemonList = (props) => {
   
-  const fetchPokemonList = () =>{
+  const fetchPokemonList = () => {
     props.fetchPokemonList(props.pokemonData.next);
   }
 
-  if ( !props.pokemonData.didLoadPokemons ){
+  if ( !props.pokemonData.didLoadPokemons ) {
     fetchPokemonList();
     props.updateLoadPokemon();
   }
  
   const fetchPokemon = (index) => {
-    if ( !props.pokemonData.isComparing ){
+    if ( !props.pokemonData.isComparing ) {
       props.selectPokemon(index);
       props.fetchPokemon(index);
       props.fetchPokemonSpecies(index);

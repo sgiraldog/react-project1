@@ -1,10 +1,10 @@
-.welcome-container{
+.welcome-container {
   position: relative;
   background: url('../../images/pokedex-bg.jpg');
   height: 100vh;
 }
 
-.welcome-card{
+.welcome-card {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,7 +15,7 @@
   border-radius: 5rem;
 }
 
-.welcome-message-container{
+.welcome-message-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,13 +24,13 @@
   height: 100%;
 }
 
-.welcome-message{
+.welcome-message {
   font-size: 3.5rem;
   text-align: center;
   color: var(--light-black);
 }
 
-.welcome-button{
+.welcome-button {
   text-decoration: none;
   color: var(--white);
   background: var(--redish);
@@ -38,7 +38,7 @@
   border-radius: 1rem;
 }
 
-.welcome-button:hover{
+.welcome-button:hover {
   color: var(--redish);
   background: var(--white);
   border-style: solid;
@@ -46,34 +46,34 @@
   border-color: var(--redish);
 }
 
-.welcome-img{
+.welcome-img {
   position: absolute;
   width: 7rem;
   bottom: 5%;
   left: 5%;
 }
 
-@media (max-width: 900px){
-  .welcome-card{
+@media (max-width: 900px) {
+  .welcome-card {
     width: 70vw;
     height: 50vh;
   }
-  .welcome-img{
+  .welcome-img {
     width: 5rem;
   }
 }
 
-@media (max-width: 600px){
-  .welcome-card{
+@media (max-width: 600px) {
+  .welcome-card {
     width: 80vw;
     height: 50vh;
   }
   
-  .welcome-message{
+  .welcome-message {
     font-size: 3rem;
   }
   
-  .welcome-button{
+  .welcome-button {
     text-decoration: none;
     color: var(--white);
     background: var(--redish);
@@ -81,7 +81,7 @@
     border-radius: 1rem;
   }
 
-  .welcome-img{
+  .welcome-img {
     width: 4rem;
   }
 }

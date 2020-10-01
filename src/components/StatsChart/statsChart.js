@@ -8,9 +8,8 @@ const StatsChart = (props) => {
 
   const datasetKeyProvider = () => {
     let key = 'chart_' + firstPokemon.id;
-    if (secondPokemon){
+    if ( secondPokemon ) {
       key += '_' + secondPokemon.id;
-    }else{
     }
     return key;
   }
@@ -28,7 +27,7 @@ const StatsChart = (props) => {
     ]
   }
 
-  if ( props.pokemonData.isComparing ){
+  if ( props.pokemonData.isComparing ) {
     data.datasets = [
       ...data.datasets,
       {

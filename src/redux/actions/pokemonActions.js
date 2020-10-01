@@ -63,7 +63,6 @@ export const fetchPokemon = (index) => (dispatch) => {
     dispatch({
       type: actionTypes.FETCH_POKEMON_REQUEST
     })
-    
     fetch(url)
     .then( res => res.json() )
     .then( data => {
@@ -97,7 +96,7 @@ export const fetchPokemon = (index) => (dispatch) => {
   }
 }
 
-export const fetchPokemonSpecies = (index) => (dispatch) =>{
+export const fetchPokemonSpecies = (index) => (dispatch) => {
   const url = config.API_URL + '/pokemon-species/' + (index + 1)
   const state = store.getState();
   const pokemon = state.pokemonData.pokemons[index];
@@ -155,17 +154,15 @@ export const updatePokemonModalActive = () =>
     type: actionTypes.UPDATE_MODAL_ACTIVE
   })
 
-
 export const updateComparing = () => 
   ({
     type: actionTypes.UPDATE_COMPARING
   })
 
-  export const updateLoadPokemon = () => 
+export const updateLoadPokemon = () => 
   ({
     type: actionTypes.UPDATE_LOAD_POKEMON
   })
-
 
 export const updateComparisonModalActive = () =>
   ({
@@ -173,7 +170,7 @@ export const updateComparisonModalActive = () =>
   })
 
 const getStringGender = (index) => {
-  if ( index >= 0 && index <= 4 ){
+  if ( index >= 0 && index <= 4 ) {
     return 'Male';
   } else if ( index >= 4 && index <= 8 ) {
     return 'Female';
