@@ -1,0 +1,87 @@
+.welcome-container {
+  position: relative;
+  background: url('../../images/pokedex-bg.jpg');
+  height: 100vh;
+}
+
+.welcome-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vh;
+  background: var(--light-white);
+  border-radius: 5rem;
+}
+
+.welcome-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-message {
+  font-size: 3.5rem;
+  text-align: center;
+  color: var(--light-black);
+}
+
+.welcome-button {
+  text-decoration: none;
+  color: var(--white);
+  background: var(--redish);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.welcome-button:hover {
+  color: var(--redish);
+  background: var(--white);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--redish);
+}
+
+.welcome-img {
+  position: absolute;
+  width: 7rem;
+  bottom: 5%;
+  left: 5%;
+}
+
+@media (max-width: 900px) {
+  .welcome-card {
+    width: 70vw;
+    height: 50vh;
+  }
+  .welcome-img {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-card {
+    width: 80vw;
+    height: 50vh;
+  }
+  
+  .welcome-message {
+    font-size: 3rem;
+  }
+  
+  .welcome-button {
+    text-decoration: none;
+    color: var(--white);
+    background: var(--redish);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .welcome-img {
+    width: 4rem;
+  }
+}
